@@ -1,11 +1,16 @@
+import AppDataSource from "../../data-source";
 import { User } from "../../entities/User";
 import { IUserRepository } from "../IUserRepository";
 export class UserRepository implements IUserRepository {
+  constructor(private appDataSource = AppDataSource.getRepository(User)) {}
+
   findByName(name: string): Promise<User> {
-    throw new Error("Method not implemented.");
+    return this.appDataSource.findOneBy({
+      name,
+    });
   }
 
-  save(user: User): Promise<void> {
-    throw new Error("Method not implemented.");
+  async save(user: User): Promise<void> {
+    await this.appDataSource.save(user);
   }
 }

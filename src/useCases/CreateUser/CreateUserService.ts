@@ -1,6 +1,8 @@
 import { User } from "./../../entities/User";
 import { ICreateUserRequestDTO } from "./CreateUserDTO";
 import { IUserRepository } from "../../repositories/IUserRepository";
+import bcryptjs from "bcryptjs";
+
 export class CreateUserService {
   constructor(private userRepository: IUserRepository) {}
 
@@ -13,7 +15,7 @@ export class CreateUserService {
 
     const user = new User();
     user.name = data.name;
-    user.password = data.password;
+    user.password = bcryptjs.hashSync(data.password, 10);
 
     await this.userRepository.save(user);
   }
