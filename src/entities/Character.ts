@@ -32,6 +32,15 @@ export class Character {
   @Column()
   url: string;
 
+  @Column()
+  origin: string;
+
+  @Column()
+  location: string;
+
+  @Column()
+  episode: Text;
+
   @CreateDateColumn({ type: "timestamptz" })
   created_at: Date;
 }
