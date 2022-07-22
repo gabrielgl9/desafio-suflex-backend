@@ -18,5 +18,6 @@ export interface IRegisterFavoriteCharacterRequestDTO {
   image: string;
   episode: string[];
   url: string;
+  created: Date;
   user_id: number;
 }

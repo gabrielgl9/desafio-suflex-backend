@@ -19,6 +19,7 @@ export class RegisterFavoriteCharacterController {
       image,
       episode,
       url,
+      created,
     } = request.body;
 
     try {
@@ -35,6 +36,7 @@ export class RegisterFavoriteCharacterController {
           image,
           episode,
           url,
+          created: new Date(created),
           user_id: request.user_id,
         });
 

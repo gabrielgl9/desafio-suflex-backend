@@ -45,6 +45,9 @@ export class Character {
   episode: string;
 
   @Column()
+  created: Date;
+
+  @Column()
   user_id: number;
 
   @ManyToOne(() => User, (user) => user.characters, {
@@ -52,7 +55,4 @@ export class Character {
   })
   @JoinColumn({ name: "user_id" })
   user: User;
-
-  @CreateDateColumn({ type: "timestamptz" })
-  created_at: Date;
 }
