@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
-
-dotenv.config();
+import "reflect-metadata";
+import "dotenv/config";
+import "./data-source";
 
 const app: Express = express();
 
