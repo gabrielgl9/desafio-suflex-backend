@@ -7,13 +7,35 @@ export class RegisterFavoriteCharacterController {
   ) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, password } = request.body;
+    const {
+      id,
+      name,
+      status,
+      species,
+      type,
+      gender,
+      origin,
+      location,
+      image,
+      episode,
+      url,
+    } = request.body;
 
     try {
       const favoriteCharacter =
         await this.registerFavoriteCharacterService.execute({
+          id,
           name,
-          password,
+          status,
+          species,
+          type,
+          gender,
+          origin,
+          location,
+          image,
+          episode,
+          url,
+          user_id: request.user_id,
         });
 
       return response.status(201).json({ character: favoriteCharacter });

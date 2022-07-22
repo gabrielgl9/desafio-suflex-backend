@@ -10,6 +10,12 @@ export class UserRepository implements IUserRepository {
     return jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: "1d" });
   }
 
+  async findById(id: number): Promise<User> {
+    return this.appDataSource.findOneBy({
+      id,
+    });
+  }
+
   async findByName(name: string): Promise<User> {
     return this.appDataSource.findOneBy({
       name,

@@ -7,6 +7,7 @@ interface Location {
   url: string;
 }
 export interface IRegisterFavoriteCharacterRequestDTO {
+  id: number;
   name: string;
   status: string;
   species: string;
@@ -17,4 +18,5 @@ export interface IRegisterFavoriteCharacterRequestDTO {
   image: string;
   episode: string[];
   url: string;
+  user_id: number;
 }
