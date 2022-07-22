@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryColumn,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { User } from "./User";
 
 @Entity()
 export class Character {
@@ -38,8 +41,17 @@ export class Character {
   @Column()
   location: string;
 
+  @Column("text")
+  episode: string;
+
   @Column()
-  episode: Text;
+  user_id: number;
+
+  @ManyToOne(() => User, (user) => user.characters, {
+    onDelete: "CASCADE",
+  })
+  @JoinColumn({ name: "user_id" })
+  user: User;
 
   @CreateDateColumn({ type: "timestamptz" })
   created_at: Date;

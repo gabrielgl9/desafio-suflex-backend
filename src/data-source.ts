@@ -1,3 +1,4 @@
+import { Character } from "./entities/Character";
 import { User } from "./entities/User";
 import { DataSource } from "typeorm";
 
@@ -10,7 +11,7 @@ const AppDataSource = new DataSource({
   database: process.env.DB_CONTAINER_NAME,
   synchronize: true,
   logging: false,
-  entities: [User],
+  entities: [User, Character],
   subscribers: [],
   migrations: [],
 });
