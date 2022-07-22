@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import { CreateUserService } from "./CreateUserService";
+import { AuthUserService } from "./AuthUserService";
 
-export class CreateUserController {
-  constructor(private createUserService: CreateUserService) {}
+export class AuthUserController {
+  constructor(private authUserService: AuthUserService) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, password } = request.body;
 
     try {
-      const user = await this.createUserService.execute({
+      const user = await this.authUserService.execute({
         name,
         password,
       });

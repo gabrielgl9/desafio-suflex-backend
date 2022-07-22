@@ -4,7 +4,11 @@ import { IUserRepository } from "../IUserRepository";
 export class UserRepository implements IUserRepository {
   constructor(private appDataSource = AppDataSource.getRepository(User)) {}
 
-  findByName(name: string): Promise<User> {
+  async authUser(user: User): Promise<User> {
+    return this.appDataSource.findOneBy({ id: user.id });
+  }
+
+  async findByName(name: string): Promise<User> {
     return this.appDataSource.findOneBy({
       name,
     });
