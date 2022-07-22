@@ -2,6 +2,7 @@ import AppDataSource from "../../data-source";
 import { User } from "../../entities/User";
 import { IUserRepository } from "../IUserRepository";
 import jwt from "jsonwebtoken";
+
 export class UserRepository implements IUserRepository {
   constructor(private appDataSource = AppDataSource.getRepository(User)) {}
 
