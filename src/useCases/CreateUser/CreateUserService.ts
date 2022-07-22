@@ -6,7 +6,7 @@ import bcryptjs from "bcryptjs";
 export class CreateUserService {
   constructor(private userRepository: IUserRepository) {}
 
-  async execute(data: ICreateUserRequestDTO): Promise<User> {
+  async execute(data: ICreateUserRequestDTO): Promise<string> {
     const userAlreadyExists = await this.userRepository.findByName(data.name);
 
     if (userAlreadyExists) {

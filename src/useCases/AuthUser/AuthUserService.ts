@@ -6,7 +6,7 @@ import bcryptjs from "bcryptjs";
 export class AuthUserService {
   constructor(private userRepository: IUserRepository) {}
 
-  async execute(data: IAuthUserRequestDTO): Promise<User> {
+  async execute(data: IAuthUserRequestDTO): Promise<string> {
     const userExists = await this.userRepository.findByName(data.name);
 
     if (

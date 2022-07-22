@@ -13,7 +13,7 @@ export class AuthUserController {
         password,
       });
 
-      return response.status(201).json({ user });
+      return response.status(201).json({ token: user });
     } catch (e) {
       return response.status(400).send({
         message: e.message || "Erro inesperado",
