@@ -44,16 +44,3 @@ export class Character {
   @CreateDateColumn({ type: "timestamptz" })
   created_at: Date;
 }
-
-// - id
-// 		- name
-// 		- status
-// 		- species
-// 		- type
-// 		- gender
-// 		- origin: { name, url }
-// 		- location: { name, url }
-// 		- image
-// 		- episode": []
-// 		- url
-// 		- created

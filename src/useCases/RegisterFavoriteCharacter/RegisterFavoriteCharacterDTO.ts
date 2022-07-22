@@ -1,4 +1,20 @@
+interface Origin {
+  name: string;
+  url: string;
+}
+interface Location {
+  name: string;
+  url: string;
+}
 export interface IRegisterFavoriteCharacterRequestDTO {
   name: string;
-  password: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: Origin;
+  location: Location;
+  image: string;
+  episode: string[];
+  url: string;
 }
