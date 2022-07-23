@@ -22,7 +22,7 @@ export class CharacterRepository implements ICharacterRepository {
 
   async save(character: Character): Promise<Character | DeleteResult> {
     const characterFounded = await this.appDataSource.findOneBy({
-      id_api: character.id,
+      id_api: character.id_api,
       user_id: character.user_id,
     });
 
