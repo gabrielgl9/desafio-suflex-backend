@@ -12,15 +12,15 @@ export default function authMiddleware(
   response: Response,
   next: NextFunction
 ) {
-  const { authorization } = request.headers;
-
-  if (!authorization) {
-    response.sendStatus(400);
-  }
-
-  const token = authorization.replace("Bearer", "").trim();
-
   try {
+    const { authorization } = request.headers;
+
+    if (!authorization) {
+      throw new Error();
+    }
+
+    const token = authorization.replace("Bearer", "").trim();
+
     const data = jwt.verify(token, process.env.SECRET);
 
     const { id } = data as TokenPayload;
