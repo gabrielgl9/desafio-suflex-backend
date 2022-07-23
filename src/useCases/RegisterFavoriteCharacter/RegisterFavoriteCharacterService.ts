@@ -9,7 +9,9 @@ export class RegisterFavoriteCharacterService {
     private userRepository: IUserRepository
   ) {}
 
-  async execute(data: IRegisterFavoriteCharacterRequestDTO): Promise<void> {
+  async execute(
+    data: IRegisterFavoriteCharacterRequestDTO
+  ): Promise<Character> {
     const user = await this.userRepository.findById(data.user_id);
 
     const character = new Character();
@@ -24,8 +26,10 @@ export class RegisterFavoriteCharacterService {
     character.image = data.image;
     character.episode = JSON.stringify(data.episode);
     character.url = data.url;
+    character.created = data.created;
     character.user_id = data.user_id;
+    character.user = user;
 
-    this.characterRepository.save(user, character);
+    return this.characterRepository.save(character);
   }
 }

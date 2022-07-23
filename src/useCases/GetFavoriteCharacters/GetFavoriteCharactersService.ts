@@ -1,6 +1,8 @@
+import { IRegisterFavoriteCharacterRequestDTO } from "./../RegisterFavoriteCharacter/RegisterFavoriteCharacterDTO";
 import { Character } from "./../../entities/Character";
 import { IUserRepository } from "./../../repositories/IUserRepository";
 import { ICharacterRepository } from "../../repositories/ICharacterRepository";
+import { getFavoriteCharactersResource } from "../../Resources/FavoriteCharacters";
 
 export class GetFavoriteCharactersService {
   constructor(
@@ -8,8 +10,13 @@ export class GetFavoriteCharactersService {
     private userRepository: IUserRepository
   ) {}
 
-  async execute(userId: number): Promise<Character[]> {
+  async execute(
+    userId: number
+  ): Promise<IRegisterFavoriteCharacterRequestDTO[]> {
     const user = await this.userRepository.findById(userId);
-    return this.characterRepository.getFavoriteCharacters(user);
+    const characters = await this.characterRepository.getFavoriteCharacters(
+      user
+    );
+    return getFavoriteCharactersResource(characters);
   }
 }
