@@ -4,5 +4,6 @@ import { User } from "../entities/User";
 
 export interface ICharacterRepository {
   getFavoriteCharacters(user: User): Promise<Character[]>;
+  findCharacterById(id: number): Promise<Character>;
   save(character: Character): Promise<Character | DeleteResult>;
 }
