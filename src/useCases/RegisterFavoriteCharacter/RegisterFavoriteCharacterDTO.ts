@@ -7,7 +7,8 @@ interface Location {
   url: string;
 }
 export interface IRegisterFavoriteCharacterRequestDTO {
-  id: number;
+  id?: number;
+  id_api: number;
   name: string;
   status: string;
   species: string;

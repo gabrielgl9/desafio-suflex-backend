@@ -23,6 +23,7 @@ export function getFavoriteCharactersResource(
 
     const favoriteCharactersResource: IRegisterFavoriteCharacterRequestDTO = {
       id: character.id,
+      id_api: character.id_api,
       name: character.name,
       status: character.status,
       species: character.species,

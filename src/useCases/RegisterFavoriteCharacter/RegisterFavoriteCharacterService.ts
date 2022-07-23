@@ -16,7 +16,7 @@ export class RegisterFavoriteCharacterService {
     const user = await this.userRepository.findById(data.user_id);
 
     const character = new Character();
-    character.id = data.id;
+    character.id_api = data.id_api;
     character.name = data.name;
     character.status = data.status;
     character.species = data.species;

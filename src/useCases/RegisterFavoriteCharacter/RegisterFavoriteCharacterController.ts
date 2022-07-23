@@ -8,7 +8,7 @@ export class RegisterFavoriteCharacterController {
 
   async handle(request: Request, response: Response): Promise<Response> {
     const {
-      id,
+      id_api,
       name,
       status,
       species,
@@ -24,7 +24,7 @@ export class RegisterFavoriteCharacterController {
 
     try {
       const result = await this.registerFavoriteCharacterService.execute({
-        id,
+        id_api,
         name,
         status,
         species,

@@ -21,8 +21,13 @@ export class CharacterRepository implements ICharacterRepository {
   }
 
   async save(character: Character): Promise<Character | DeleteResult> {
-    if (await this.findCharacterById(character.id)) {
-      return this.appDataSource.delete(character.id);
+    const characterFounded = await this.appDataSource.findOneBy({
+      id_api: character.id,
+      user_id: character.user_id,
+    });
+
+    if (characterFounded) {
+      return this.appDataSource.delete(characterFounded.id);
     }
     return this.appDataSource.save(character);
   }

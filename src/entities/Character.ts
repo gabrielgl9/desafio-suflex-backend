@@ -11,8 +11,11 @@ import { User } from "./User";
 
 @Entity()
 export class Character {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
+  id_api: number;
 
   @Column()
   name: string;
