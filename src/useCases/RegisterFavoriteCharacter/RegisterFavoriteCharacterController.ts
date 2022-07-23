@@ -23,24 +23,23 @@ export class RegisterFavoriteCharacterController {
     } = request.body;
 
     try {
-      const favoriteCharacter =
-        await this.registerFavoriteCharacterService.execute({
-          id,
-          name,
-          status,
-          species,
-          type,
-          gender,
-          origin,
-          location,
-          image,
-          episode,
-          url,
-          created: new Date(created),
-          user_id: request.user_id,
-        });
+      const result = await this.registerFavoriteCharacterService.execute({
+        id,
+        name,
+        status,
+        species,
+        type,
+        gender,
+        origin,
+        location,
+        image,
+        episode,
+        url,
+        created: new Date(created),
+        user_id: request.user_id,
+      });
 
-      return response.status(201).json({ character: favoriteCharacter });
+      return response.status(201).json({ result });
     } catch (e) {
       return response.status(400).send({
         message: e.message || "Erro inesperado",

@@ -1,5 +1,5 @@
-import { Character } from "./../entities/Character";
-import { IRegisterFavoriteCharacterRequestDTO } from "./../useCases/RegisterFavoriteCharacter/RegisterFavoriteCharacterDTO";
+import { Character } from "../entities/Character";
+import { IRegisterFavoriteCharacterRequestDTO } from "../useCases/RegisterFavoriteCharacter/RegisterFavoriteCharacterDTO";
 
 export function getFavoriteCharactersResource(
   characters: Character[]

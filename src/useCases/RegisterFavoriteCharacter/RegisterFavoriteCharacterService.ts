@@ -1,3 +1,4 @@
+import { DeleteResult } from "typeorm";
 import { Character } from "./../../entities/Character";
 import { IUserRepository } from "./../../repositories/IUserRepository";
 import { ICharacterRepository } from "./../../repositories/ICharacterRepository";
@@ -11,7 +12,7 @@ export class RegisterFavoriteCharacterService {
 
   async execute(
     data: IRegisterFavoriteCharacterRequestDTO
-  ): Promise<Character> {
+  ): Promise<Character | DeleteResult> {
     const user = await this.userRepository.findById(data.user_id);
 
     const character = new Character();

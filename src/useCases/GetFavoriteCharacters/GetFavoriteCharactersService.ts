@@ -1,8 +1,7 @@
-import { IRegisterFavoriteCharacterRequestDTO } from "./../RegisterFavoriteCharacter/RegisterFavoriteCharacterDTO";
-import { Character } from "./../../entities/Character";
-import { IUserRepository } from "./../../repositories/IUserRepository";
 import { ICharacterRepository } from "../../repositories/ICharacterRepository";
-import { getFavoriteCharactersResource } from "../../Resources/FavoriteCharacters";
+import { getFavoriteCharactersResource } from "../../resources/FavoriteCharacters";
+import { IUserRepository } from "./../../repositories/IUserRepository";
+import { IRegisterFavoriteCharacterRequestDTO } from "./../RegisterFavoriteCharacter/RegisterFavoriteCharacterDTO";
 
 export class GetFavoriteCharactersService {
   constructor(
