@@ -7,6 +7,10 @@ export class AuthUserService {
   constructor(private userRepository: IUserRepository) {}
 
   async execute(data: IAuthUserRequestDTO): Promise<string> {
+    if (!data.name || !data.password) {
+      throw new Error("Informações incorretas");
+    }
+
     const userExists = await this.userRepository.findByName(data.name);
 
     if (

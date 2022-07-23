@@ -7,6 +7,10 @@ export class CreateUserService {
   constructor(private userRepository: IUserRepository) {}
 
   async execute(data: ICreateUserRequestDTO): Promise<string> {
+    if (!data.name || !data.password) {
+      throw new Error("Informações incorretas");
+    }
+
     const userAlreadyExists = await this.userRepository.findByName(data.name);
 
     if (userAlreadyExists) {
